@@ -16,8 +16,8 @@
            "environment": [],
            "externalConsole": true,
            "MIMode": "gdb",
-           "miDebuggerPath": "E:\\mingw\\bin\\gdb.exe",//the path to gdb
-           "preLaunchTask": "E:\\mingw\\bin\\gcc.exe",//compile before debug
+           "miDebuggerPath": "gdb.exe",//the path to gdb
+           "preLaunchTask": "gcc.exe",//compile before debug
            "setupCommands": [
                {
                    "description": "为 gdb 启用整齐打印",
