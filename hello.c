@@ -1,6 +1,6 @@
 #include<stdio.h>
 #include<math.h>
-#include"happy.h"
+
 int main(void){
    printf("Before enter:\n");
    int a;
