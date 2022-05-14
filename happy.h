@@ -1,1 +1,1 @@
-int isPrime(int totest);
+_Bool isPrime(int totest);
