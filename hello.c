@@ -1,5 +1,6 @@
 #include<stdio.h>
 #include<math.h>
+#include"happy.h"
 _Bool isPrime(int totest);
 int main(void){
    printf("Before enter:\n");
