@@ -5,7 +5,7 @@
       "-g",
       "${file}",
       "-o",
-      "${cwd}/${fileBasenameNoExtension}.exe"
+      "${workspaceFolder}/output/${fileBasenameNoExtension}.exe"
    ],
    "problemMatcher": {
       "owner": "cpp",
