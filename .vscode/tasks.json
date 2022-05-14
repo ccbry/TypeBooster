@@ -3,7 +3,9 @@
    "command": "gcc.exe",
    "args": [
       "-g",
-      "${file}",
+      "${workspaceFolder}/src/*.c",
+      "-I",
+      "${workspaceFolder}/headers/",
       "-o",
       "${workspaceFolder}/output/${fileBasenameNoExtension}.exe"
    ],
