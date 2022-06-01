@@ -1,0 +1,21 @@
+﻿  Main.cpp
+E:\testprj\testprj\Main.cpp(209,12): warning C4244: “return”: 从“WPARAM”转换到“int”，可能丢失数据
+E:\testprj\testprj\Main.cpp(279,43): warning C4267: “参数”: 从“size_t”转换到“int”，可能丢失数据
+E:\testprj\testprj\Main.cpp(280,80): warning C4267: “参数”: 从“size_t”转换到“int”，可能丢失数据
+E:\testprj\testprj\Main.cpp(281,94): warning C4267: “参数”: 从“size_t”转换到“int”，可能丢失数据
+E:\testprj\testprj\Main.cpp(282,77): warning C4267: “参数”: 从“size_t”转换到“int”，可能丢失数据
+E:\testprj\testprj\Main.cpp(283,107): warning C4267: “参数”: 从“size_t”转换到“int”，可能丢失数据
+E:\testprj\testprj\Main.cpp(284,109): warning C4267: “参数”: 从“size_t”转换到“int”，可能丢失数据
+E:\testprj\testprj\Main.cpp(422,1): warning C4244: “参数”: 从“double”转换到“int”，可能丢失数据
+E:\testprj\testprj\Main.cpp(430,1): warning C4244: “参数”: 从“double”转换到“int”，可能丢失数据
+E:\testprj\testprj\Main.cpp(434,1): warning C4244: “参数”: 从“double”转换到“int”，可能丢失数据
+E:\testprj\testprj\Main.cpp(438,1): warning C4244: “参数”: 从“double”转换到“int”，可能丢失数据
+E:\testprj\testprj\Main.cpp(421,20): warning C4102: “PaintManageWindow”: 未引用的标签
+E:\testprj\testprj\Main.cpp(706,1): warning C4244: “参数”: 从“double”转换到“int”，可能丢失数据
+E:\testprj\testprj\Main.cpp(715,1): warning C4244: “参数”: 从“double”转换到“int”，可能丢失数据
+E:\testprj\testprj\Main.cpp(705,19): warning C4102: “PaintManageWindow”: 未引用的标签
+E:\testprj\testprj\Main.cpp(298): warning C4715: “aboutWindowProc”: 不是所有的控件路径都返回值
+E:\testprj\testprj\Main.cpp(400): warning C4172: 返回局部变量或临时变量的地址: fileInfo
+E:\testprj\testprj\Main.cpp(797): warning C4715: “SelectWindowProc”: 不是所有的控件路径都返回值
+E:\testprj\testprj\Main.cpp(589): warning C4715: “ManageWindowProc”: 不是所有的控件路径都返回值
+  testprj.vcxproj -> E:\testprj\x64\Debug\testprj.exe

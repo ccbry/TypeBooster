@@ -1,0 +1,23 @@
+﻿  Source.cpp
+H:\vs project\testprj\testprj\Source.cpp(214,12): warning C4244: 'return': conversion from 'WPARAM' to 'int', possible loss of data
+H:\vs project\testprj\testprj\Source.cpp(284,43): warning C4267: 'argument': conversion from 'size_t' to 'int', possible loss of data
+H:\vs project\testprj\testprj\Source.cpp(285,80): warning C4267: 'argument': conversion from 'size_t' to 'int', possible loss of data
+H:\vs project\testprj\testprj\Source.cpp(286,94): warning C4267: 'argument': conversion from 'size_t' to 'int', possible loss of data
+H:\vs project\testprj\testprj\Source.cpp(287,77): warning C4267: 'argument': conversion from 'size_t' to 'int', possible loss of data
+H:\vs project\testprj\testprj\Source.cpp(288,107): warning C4267: 'argument': conversion from 'size_t' to 'int', possible loss of data
+H:\vs project\testprj\testprj\Source.cpp(289,109): warning C4267: 'argument': conversion from 'size_t' to 'int', possible loss of data
+H:\vs project\testprj\testprj\Source.cpp(427,1): warning C4244: 'argument': conversion from 'double' to 'int', possible loss of data
+H:\vs project\testprj\testprj\Source.cpp(435,1): warning C4244: 'argument': conversion from 'double' to 'int', possible loss of data
+H:\vs project\testprj\testprj\Source.cpp(439,1): warning C4244: 'argument': conversion from 'double' to 'int', possible loss of data
+H:\vs project\testprj\testprj\Source.cpp(443,1): warning C4244: 'argument': conversion from 'double' to 'int', possible loss of data
+H:\vs project\testprj\testprj\Source.cpp(426,20): warning C4102: 'PaintManageWindow': unreferenced label
+H:\vs project\testprj\testprj\Source.cpp(711,1): warning C4244: 'argument': conversion from 'double' to 'int', possible loss of data
+H:\vs project\testprj\testprj\Source.cpp(720,1): warning C4244: 'argument': conversion from 'double' to 'int', possible loss of data
+H:\vs project\testprj\testprj\Source.cpp(710,19): warning C4102: 'PaintManageWindow': unreferenced label
+  Generating code
+  1 of 25 functions ( 4.0%) were compiled, the rest were copied from previous compilation.
+    0 functions were new in current compilation
+    1 functions had inline decision re-evaluated but remain unchanged
+H:\vs project\testprj\testprj\Source.cpp(802): warning C4715: 'SelectWindowProc': not all control paths return a value
+  Finished generating code
+  testprj.vcxproj -> H:\vs project\testprj\x64\Release\testprj.exe
