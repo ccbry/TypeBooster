@@ -25,7 +25,7 @@ HWND hwnd;
 HINSTANCE hinstance;
 WCHAR returnPath[128] = { 0 };
 //Below are Function prototypes and constants used in article selection
-LPWSTR randomArticle();
+BOOL randomArticle();
 BOOL selectedArticle();
 BOOL regSelectWindow();
 LRESULT CALLBACK SelectWindowProc(HWND hwnd, UINT uint, WPARAM wParam, LPARAM lParam);
@@ -44,6 +44,10 @@ VOID ShowItem(UINT row, WCHAR * Name, WCHAR * Path, HWND list);
 
 // Below are function prototypes and constants used in "ini" file IO;
 VOID WriteProfile(LPCWSTR section, LPCWSTR item, LPCWSTR info, LPCWSTR relectivePath);
+typedef struct {
+	WCHAR nameArray[64][128];
+}Infile;
+Infile* readProfile(Infile* ret);
 
 /*
 * entry function
@@ -95,7 +99,7 @@ void MainWindow_Cls_OnCommand(HWND hWnd, UINT id, HWND hwndctrl, UINT code) {
 		articleManager();
 		break;
 	case ID_PRACTICE_RANDOMARTICLE:
-		//TODO
+		randomArticle();
 		break;
 	case ID_PRACTICE_SELECTED:
 		selectedArticle();
@@ -458,32 +462,13 @@ LRESULT CALLBACK ManageWindowProc(HWND hwnd, UINT uint, WPARAM wParam, LPARAM lP
 		
 		//read ini and display
 		UINT NumOfFileInIni = GetPrivateProfileInt(L"Total_Item", L"count", -1, L"..\\etc\\docList.ini");
-		WCHAR inFileBuffer[64 * 128] = { 0 };
-		GetPrivateProfileSectionNames(inFileBuffer, 64 * 128, L"..\\etc\\docList.ini");
-		WCHAR inFile[64][128] = { 0 };
-		UINT infileCount = 0;
-		UINT charNum = 0;
-		for (UINT i = 0; i < 64 * 128; ) {
-			inFile[infileCount][charNum] = inFileBuffer[i];
-			if (inFileBuffer[i] == '\0' && inFileBuffer[i + 1] == '\0' && inFileBuffer[i + 2] == '\0') {
-				goto out;
-			}
-			if (inFileBuffer[i] == '\0') {
-				infileCount++;
-				charNum = 0;
-				i++;
-				continue;
-			}
-			charNum++;
-			i++;
-		}
-	out:
-		;
+		Infile namearray = {0};
+		readProfile(&namearray);
 
 		for (UINT i = 0; i < NumOfFileInIni; i++) {
 			WCHAR pathName[128] = { 0 };
-			GetPrivateProfileString(inFile[i + 1], L"path", L"error", pathName, 128, L"..\\etc\\docList.ini");
-			ShowItem(rowCount, inFile[i + 1], pathName, articleList);
+			GetPrivateProfileString(namearray.nameArray[i + 1], L"path", L"error", pathName, 128, L"..\\etc\\docList.ini");
+			ShowItem(rowCount, namearray.nameArray[i + 1], pathName, articleList);
 			rowCount++;
 		}
 		break;
@@ -522,37 +507,18 @@ LRESULT CALLBACK ManageWindowProc(HWND hwnd, UINT uint, WPARAM wParam, LPARAM lP
 					
 					ListView_GetItemText(articleList, i, 0, inList[i], 128);
 				}
-				WCHAR inFileBuffer[64 * 128] = { 0 };
-				GetPrivateProfileSectionNames(inFileBuffer, 64 * 128, L"..\\etc\\docList.ini");
-				WCHAR inFile[64][128] = { 0 };
-				UINT infileCount = 0;
-				UINT charNum = 0;
-				for (UINT i = 0; i < 64 * 128; ) {
-					inFile[infileCount][charNum] = inFileBuffer[i];
-					if (inFileBuffer[i] == '\0' && inFileBuffer[i + 1] == '\0' && inFileBuffer[i + 2] == '\0') {
-						goto out1;
-					}
-					if (inFileBuffer[i] == '\0') {
-						infileCount++;
-						charNum = 0;
-						i++;
-						continue;
-					}
-					charNum++;
-					i++;
-				}
-				out1:
-				;
+				Infile namearray = { 0 };
+				readProfile(&namearray);
 				//compare two arrays of string to find out which one is differ.
 				for (UINT i = 1; i < 64; i++) {
 					BOOL have = FALSE;
 					for (UINT j = 0; j < 64; j++) {
-						if (wcscmp(inFile[i], inList[j]) == 0) {
+						if (wcscmp(namearray.nameArray[i], inList[j]) == 0) {
 							have = TRUE;
 						}
 					}
 					if (!have) {
-						WriteProfile(inFile[i], NULL, NULL, L"..\\etc\\docList.ini");
+						WriteProfile(namearray.nameArray[i], NULL, NULL, L"..\\etc\\docList.ini");
 					}
 					
 				}
@@ -560,7 +526,7 @@ LRESULT CALLBACK ManageWindowProc(HWND hwnd, UINT uint, WPARAM wParam, LPARAM lP
 					BOOL have = FALSE;
 					for (UINT j = 0; j < 64; j++) {
 						
-						if (wcscmp(inList[i], inFile[j]) == 0) {
+						if (wcscmp(inList[i], namearray.nameArray[j]) == 0) {
 							have = TRUE;
 						}
 						
@@ -646,32 +612,14 @@ VOID WriteProfile(LPCWSTR section, LPCWSTR item, LPCWSTR info, LPCWSTR relective
 /*
 * return a LPWSTR to a random file path
 */
-LPWSTR randomArticle() {
+BOOL randomArticle() {
 	UINT NumOfFileInIni = GetPrivateProfileInt(L"Total_Item", L"count", -1, L"..\\etc\\docList.ini");
-	WCHAR inFileBuffer[64 * 128] = { 0 };
-	GetPrivateProfileSectionNames(inFileBuffer, 64 * 128, L"..\\etc\\docList.ini");
-	WCHAR inFile[64][128] = { 0 };
-	UINT infileCount = 0;
-	UINT charNum = 0;
-	for (UINT i = 0; i < 64 * 128; ) {
-		inFile[infileCount][charNum] = inFileBuffer[i];
-		if (inFileBuffer[i] == '\0' && inFileBuffer[i + 1] == '\0' && inFileBuffer[i + 2] == '\0') {
-			goto out;
-		}
-		if (inFileBuffer[i] == '\0') {
-			infileCount++;
-			charNum = 0;
-			i++;
-			continue;
-		}
-		charNum++;
-		i++;
-	}
-out:
-	;
+	Infile namearray = { 0 };
+	readProfile(&namearray);
 	srand((UINT)time(NULL));
 	UINT ret = 1 + rand() % NumOfFileInIni;
-	return inFile[ret];
+	GetPrivateProfileString(namearray.nameArray[ret], L"path", L"error", returnPath, 128, L"..\\etc\\docList.ini");
+	return TRUE;
 }
 
 BOOL regSelectWindow() {
@@ -735,32 +683,13 @@ LRESULT CALLBACK SelectWindowProc(HWND hwnd, UINT uint, WPARAM wParam, LPARAM lP
 
 		//read ini and display
 		UINT NumOfFileInIni = GetPrivateProfileInt(L"Total_Item", L"count", -1, L"..\\etc\\docList.ini");
-		WCHAR inFileBuffer[64 * 128] = { 0 };
-		GetPrivateProfileSectionNames(inFileBuffer, 64 * 128, L"..\\etc\\docList.ini");
-		WCHAR inFile[64][128] = { 0 };
-		UINT infileCount = 0;
-		UINT charNum = 0;
-		for (UINT i = 0; i < 64 * 128; ) {
-			inFile[infileCount][charNum] = inFileBuffer[i];
-			if (inFileBuffer[i] == '\0' && inFileBuffer[i + 1] == '\0' && inFileBuffer[i + 2] == '\0') {
-				goto out;
-			}
-			if (inFileBuffer[i] == '\0') {
-				infileCount++;
-				charNum = 0;
-				i++;
-				continue;
-			}
-			charNum++;
-			i++;
-		}
-	out:
-		;
+		Infile namearray = { 0 };
+		readProfile(&namearray);
 
 		for (UINT i = 0; i < NumOfFileInIni; i++) {
 			WCHAR pathName[128] = { 0 };
-			GetPrivateProfileString(inFile[i + 1], L"path", L"error", pathName, 128, L"..\\etc\\docList.ini");
-			ShowItem(rowCount, inFile[i + 1], pathName, articleList);
+			GetPrivateProfileString(namearray.nameArray[i + 1], L"path", L"error", pathName, 128, L"..\\etc\\docList.ini");
+			ShowItem(rowCount, namearray.nameArray[i + 1], pathName, articleList);
 			rowCount++;
 		}
 		break;
@@ -819,10 +748,32 @@ BOOL selectedArticle() {
 	return TRUE;
 
 }
-
+Infile* readProfile(Infile* ret) {
+	WCHAR inFileBuffer[64 * 128] = { 0 };
+	GetPrivateProfileSectionNames(inFileBuffer, 64 * 128, L"..\\etc\\docList.ini");
+	UINT infileCount = 0;
+	UINT charNum = 0;
+	for (UINT i = 0; i < 64 * 128; ) {
+		ret->nameArray[infileCount][charNum] = inFileBuffer[i];
+		if (inFileBuffer[i] == '\0' && inFileBuffer[i + 1] == '\0' && inFileBuffer[i + 2] == '\0') {
+			goto out;
+		}
+		if (inFileBuffer[i] == '\0') {
+			infileCount++;
+			charNum = 0;
+			i++;
+			continue;
+		}
+		charNum++;
+		i++;
+	}
+out:
+	return ret;
+}
 //TODO: Implement the menu bar
 //TODO: test music cycle
 //TODO: Learn com
 //TODO: music path
 //TODO: about https
 //TODO: high dpi
+//TODO: readProfile();
