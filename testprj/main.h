@@ -6,19 +6,18 @@
 #include<wchar.h>
 #include<stdlib.h>
 
-
-
 #include"resource.h"
-#include"IniIo.h"
-#include"select.h"
-#include"Error.h"
 #include"login.h"
-#include"music.h"
+#include"globle.h"
+#include"Error.h"
 #include"about.h"
+#include"manage.h"
+#include"select.h"
+
+
 //Below are function prototypes and constants used in main window 
 LRESULT CALLBACK mainWindowProc(HWND hwnd, UINT uint, WPARAM wParam, LPARAM lParam);
 BOOL RegWindowClass(HINSTANCE hInstacne);
 BOOL createWindowInstance(HINSTANCE hinstance, int cmdShow);
 int mainWindowGo(HINSTANCE hInstance, int nShowCmd);
 
-LPCWSTR WINDOW_CLASS_NAME = L"MainWindowForTyper";

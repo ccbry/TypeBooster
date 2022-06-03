@@ -1,1 +1,5 @@
-﻿  testprj.vcxproj -> H:\vs project\typer\ccbry\TypeBooster\x64\Debug\testprj.exe
+﻿  Main.cpp
+  mainwindow.cpp
+H:\vs project\typer\ccbry\TypeBooster\testprj\mainwindow.cpp(128,12): warning C4244: 'return': conversion from 'WPARAM' to 'int', possible loss of data
+  Generating Code...
+  testprj.vcxproj -> H:\vs project\typer\ccbry\TypeBooster\x64\Debug\testprj.exe

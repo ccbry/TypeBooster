@@ -147,6 +147,7 @@
     <ClCompile Include="IniIO.cpp" />
     <ClCompile Include="Main.cpp" />
     <ClCompile Include="login.cpp" />
+    <ClCompile Include="mainwindow.cpp" />
     <ClCompile Include="manage.cpp" />
     <ClCompile Include="music.cpp" />
     <ClCompile Include="select.cpp" />
@@ -156,6 +157,7 @@
     <ClInclude Include="Error.h" />
     <ClInclude Include="globle.h" />
     <ClInclude Include="IniIo.h" />
+    <ClInclude Include="mainwindow.h" />
     <ClInclude Include="manage.h" />
     <ClInclude Include="music.h" />
     <ClInclude Include="resource.h" />
