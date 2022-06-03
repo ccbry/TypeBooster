@@ -28,7 +28,7 @@ BOOL regManageWindow() {
 * open a new file chooser dialog
 * return a LPWSTR array :first carring path and second carrying name
 */
-LPWSTR* LoadFile() {
+LPWSTR* SelectFileToAdd() {
 	IFileOpenDialog* pFileOpen;
 	LPWSTR fileInfo[2] = { NULL, NULL };
 
@@ -130,7 +130,7 @@ LRESULT CALLBACK ManageWindowProc(HWND hwnd, UINT uint, WPARAM wParam, LPARAM lP
 			{
 			case IDC_ADDBUTTON: {
 				LPWSTR* info = { 0 };
-				info = LoadFile();
+				info = SelectFileToAdd();
 				if (info == 0) {
 					goto jump;
 				}

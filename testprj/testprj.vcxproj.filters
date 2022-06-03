@@ -48,6 +48,9 @@
     <ClCompile Include="history.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="inputing.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="resource.h">
@@ -84,6 +87,9 @@
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="history.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="inputing.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>

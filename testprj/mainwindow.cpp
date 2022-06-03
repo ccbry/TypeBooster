@@ -55,6 +55,8 @@ LRESULT CALLBACK mainWindowProc(
 	GetClientRect(hwnd, &clientAera);
 	switch (uint) {
 	case WM_CREATE: {
+		CreateDisplay(hinstance, hwnd, 80000 / clientAera.right > 100 ? 80000 / clientAera.right : 100);
+		CreateInput(hinstance, hwnd, 80000 / clientAera.right > 100 ? 80000 / clientAera.right : 100);
 		score his[5] = { 0 };
 		readHistory(his, ID);
 		hwnd2 = CreateWindow(
@@ -75,6 +77,7 @@ LRESULT CALLBACK mainWindowProc(
 			his[3].word_count, his[3].error_count, his[3].accuracy, his[3].key_count, his[3].back, his[3].speed, his[3].time,
 			his[4].word_count, his[4].error_count, his[4].accuracy, his[4].key_count, his[4].back, his[4].speed, his[4].time);
 		SetWindowText(hwnd2, history);
+		SetFocus(hInPut);
 	}break;
 
 	case WM_SIZE: {
@@ -86,10 +89,38 @@ LRESULT CALLBACK mainWindowProc(
 			hwnd,
 			(HMENU)114514, hinstance, NULL);
 	}break;
+	case WM_NOTIFY:
+	{
+		LPNMHDR nmhdr = (LPNMHDR)lParam;
+		switch (nmhdr->code)
+		{
+		case EN_MSGFILTER:
+			MSGFILTER* msgfilter = (MSGFILTER*)lParam;
+			switch (msgfilter->msg)
+			{
+			case WM_KEYDOWN:
+				DisplayScore.key_count++;
+			case WM_CHAR:
+				switch (msgfilter->wParam)
+				{
+				case VK_BACK:
+					DisplayScore.back++;
+				default:
+					break;
+				}
+			}
+		}
+		return FALSE;
+	}
 	case WM_DESTROY:
 		return HANDLE_WM_DESTROY(hwnd, wParam, lParam, MainWindow_Cls_OnDestroy);
-	case WM_COMMAND:
+	case WM_COMMAND: {
+		RECT clientAera;
+		GetClientRect(hwnd, &clientAera);
+		if (HIWORD(wParam) == EN_CHANGE)
+			InPuting(80000 / clientAera.right > 100 ? 80000 / clientAera.right : 100);
 		return HANDLE_WM_COMMAND(hwnd, wParam, lParam, MainWindow_Cls_OnCommand);
+	}
 	default: return DefWindowProc(hwnd, uint, wParam, lParam);
 	}
 }

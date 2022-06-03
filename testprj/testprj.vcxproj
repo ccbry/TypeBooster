@@ -146,6 +146,7 @@
     <ClCompile Include="globle.cpp" />
     <ClCompile Include="history.cpp" />
     <ClCompile Include="IniIO.cpp" />
+    <ClCompile Include="inputing.cpp" />
     <ClCompile Include="Main.cpp" />
     <ClCompile Include="login.cpp" />
     <ClCompile Include="mainwindow.cpp" />
@@ -159,6 +160,7 @@
     <ClInclude Include="globle.h" />
     <ClInclude Include="history.h" />
     <ClInclude Include="IniIo.h" />
+    <ClInclude Include="inputing.h" />
     <ClInclude Include="mainwindow.h" />
     <ClInclude Include="manage.h" />
     <ClInclude Include="music.h" />

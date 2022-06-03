@@ -1,4 +1,2 @@
-﻿  mainwindow.cpp
-H:\vs project\typer\ccbry\TypeBooster\testprj\mainwindow.cpp(168,12): warning C4244: 'return': conversion from 'WPARAM' to 'int', possible loss of data
-H:\vs project\typer\ccbry\TypeBooster\testprj\mainwindow.cpp(95): warning C4715: 'mainWindowProc': not all control paths return a value
-  testprj.vcxproj -> H:\vs project\typer\ccbry\TypeBooster\x64\Debug\testprj.exe
+﻿  login.cpp
+  testprj.vcxproj -> C:\Users\ZJY\source\repos\TypeBooster\x64\Debug\testprj.exe

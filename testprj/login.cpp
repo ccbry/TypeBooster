@@ -12,7 +12,7 @@ wchar_t MAXIDW[10] = { '\0' };
 int MAXID = 0;
 int current_user;
 //用户配置文件目录
-wchar_t config_file_name[] = L".\\config.ini";
+wchar_t config_file_name[] = L"..\\etc\\user.ini";
 //创建一个handle变量用于标识配置文件是否已经存在
 HANDLE find_file;
 
@@ -67,7 +67,7 @@ INT_PTR CALLBACK DialogProcSignIn(HWND hdlg, UINT msg, WPARAM wParam, LPARAM lPa
 		}
 	}
 	}
-	return (INT_PTR)false;
+	return (INT_PTR)FALSE;
 }
 INT_PTR CALLBACK DialogProcSignUp(HWND hdlg, UINT msg, WPARAM wParam, LPARAM lParam)
 {
@@ -119,10 +119,10 @@ INT_PTR CALLBACK DialogProcSignUp(HWND hdlg, UINT msg, WPARAM wParam, LPARAM lPa
 		}
 	}
 	}
-	return (INT_PTR)false;
+	return (INT_PTR)FALSE;
 }
 
-bool judge(wchar_t username[], wchar_t password[])
+BOOL judge(wchar_t username[], wchar_t password[])
 {
 	wchar_t ID_Str[10];
 	wchar_t temp_username[MAXLEN];
@@ -135,13 +135,13 @@ bool judge(wchar_t username[], wchar_t password[])
 		if (!(lstrcmpW(username, temp_username)) && !(lstrcmpW(password, temp_password)))
 		{
 			current_user = i;
-			return true;
+			return TRUE;
 		}
 	}
-	return false;
+	return FALSE;
 }
 
-bool judge_username(wchar_t username[])
+BOOL judge_username(wchar_t username[])
 {
 	wchar_t ID_Str[10];
 	wchar_t temp_username[MAXLEN];
@@ -152,7 +152,7 @@ bool judge_username(wchar_t username[])
 		GetPrivateProfileStringW(ID_Str, L"UserName", L"用户名读取失败", temp_username, MAXLEN, config_file_name);
 
 		if (!lstrcmpW(username, temp_username))
-			return true;
+			return TRUE;
 	}
-	return false;
+	return FALSE;
 }

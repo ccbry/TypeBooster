@@ -13,5 +13,5 @@
 BOOL regManageWindow();
 LRESULT CALLBACK ManageWindowProc(HWND hwnd, UINT uint, WPARAM wParam, LPARAM lParam);
 BOOL articleManager();
-LPWSTR* LoadFile();
+LPWSTR* SelectFileToAdd();
 VOID ShowItem(UINT row, WCHAR* Name, WCHAR* Path, HWND list);
