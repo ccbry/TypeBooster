@@ -5,7 +5,7 @@
 */
 VOID musicPlay() {
 	MCIERROR err;
-	err = mciSendString(L"play ..\\etc\\music.WAV", NULL, 0, NULL);
+	err = mciSendString(L"play ..\\etc\\music.WAV repeat", NULL, 0, NULL);
 	if (err != 0) {
 		musicErrorCatching(err, hwnd);
 	}
@@ -47,7 +47,7 @@ VOID musicErrorCatching(MCIERROR err, HWND hwnd) {
 */
 VOID musicLoad() {
 	MCIERROR err;
-	err = mciSendString(L"open ..\\etc\\music.WAV", NULL, 0, NULL);
+	err = mciSendString(L"open ..\\etc\\music.WAV TYPE MPEGVIDEO", NULL, 0, NULL);
 	if (err != 0) {
 		musicErrorCatching(err, hwnd);
 	}
