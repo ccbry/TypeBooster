@@ -14,7 +14,6 @@
 #include"manage.h"
 #include"select.h"
 
-
 //Below are function prototypes and constants used in main window 
 LRESULT CALLBACK mainWindowProc(HWND hwnd, UINT uint, WPARAM wParam, LPARAM lParam);
 BOOL RegWindowClass(HINSTANCE hInstacne);
