@@ -16,6 +16,9 @@ VOID addHistory(score toadd, UINT ID) {
 		WCHAR back[5];
 		StringCchPrintf(back, 5, L"%d", pre[i].back);
 		WriteProfile(hst, L"back", back, L"..\\etc\\history.ini");
+		WCHAR key_count[5];
+		StringCchPrintf(key_count, 5, L"%d", pre[i].key_count);
+		WriteProfile(hst, L"back", back, L"..\\etc\\history.ini");
 		WCHAR error_count[5];
 		StringCchPrintf(error_count, 5, L"%d", pre[i].error_count);
 		WriteProfile(hst, L"error_count", error_count, L"..\\etc\\history.ini");
@@ -44,6 +47,7 @@ score* readHistory(score* out, UINT ID) {
 		out[i].speed = GetPrivateProfileInt(hst, L"speed", 0, L"..\\etc\\history.ini");
 		out[i].time = GetPrivateProfileInt(hst, L"time", 0, L"..\\etc\\history.ini");
 		out[i].word_count = GetPrivateProfileInt(hst, L"word_count", 0, L"..\\etc\\history.ini");
+		out[i].key_count = GetPrivateProfileInt(hst, L"key_count", 0, L"..\\etc\\history.ini");
 	}
 	return out;
 }

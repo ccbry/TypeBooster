@@ -6,7 +6,8 @@
 #include"select.h"
 #include"Error.h"
 #include"about.h"
-
+#include"history.h"
+#include"globle.h"
 
 void MainWindow_Cls_OnDestroy(HWND hWnd);
 void MainWindow_Cls_OnCommand(HWND hWnd, UINT id, HWND hwndctrl, UINT code);

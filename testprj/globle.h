@@ -4,3 +4,4 @@
 extern HWND hwnd;
 extern HINSTANCE hinstance;
 extern WCHAR returnPath[128];
+extern UINT ID;

@@ -35,6 +35,9 @@ void MainWindow_Cls_OnCommand(HWND hWnd, UINT id, HWND hwndctrl, UINT code) {
 
 	}
 }
+
+
+
 /*
 * function: window message processing function
 * paras: message sent from window
@@ -44,8 +47,45 @@ LRESULT CALLBACK mainWindowProc(
 	UINT uint,
 	WPARAM wParam,
 	LPARAM lParam
+
 ) {
+	static HWND hwnd2;
+	static WCHAR history[300];
+	static RECT clientAera;
+	GetClientRect(hwnd, &clientAera);
 	switch (uint) {
+	case WM_CREATE: {
+		score his[5] = { 0 };
+		readHistory(his, ID);
+		hwnd2 = CreateWindow(
+			L"STATIC", L"abc",
+			WS_CHILD | WS_VISIBLE | SS_LEFT,
+			0, 0, clientAera.right, 80000 / clientAera.right > 100 ? 80000 / clientAera.right : 100,
+			hwnd,
+			(HMENU)114514, hinstance, NULL);
+		StringCchPrintf(history, 300,
+			L"历史1：字数：%d，错误数：%d，准确度：%f%，按键次数：%d，退格次数：%d，速度：%d，时间：%d\n"
+			L"历史2：字数：%d，错误数：%d，准确度：%f%，按键次数：%d，退格次数：%d，速度：%d，时间：%d\n"
+			L"历史3：字数：%d，错误数：%d，准确度：%f%，按键次数：%d，退格次数：%d，速度：%d，时间：%d\n"
+			L"历史4：字数：%d，错误数：%d，准确度：%f%，按键次数：%d，退格次数：%d，速度：%d，时间：%d\n"
+			L"历史5：字数：%d，错误数：%d，准确度：%f%，按键次数：%d，退格次数：%d，速度：%d，时间：%d\n",
+			his[0].word_count, his[0].error_count, his[0].accuracy, his[0].key_count, his[0].back, his[0].speed, his[0].time,
+			his[1].word_count, his[1].error_count, his[1].accuracy, his[1].key_count, his[1].back, his[1].speed, his[1].time,
+			his[2].word_count, his[2].error_count, his[2].accuracy, his[2].key_count, his[2].back, his[2].speed, his[2].time,
+			his[3].word_count, his[3].error_count, his[3].accuracy, his[3].key_count, his[3].back, his[3].speed, his[3].time,
+			his[4].word_count, his[4].error_count, his[4].accuracy, his[4].key_count, his[4].back, his[4].speed, his[4].time);
+		SetWindowText(hwnd2, history);
+	}break;
+
+	case WM_SIZE: {
+		DestroyWindow(hwnd2);
+		hwnd2 = CreateWindow(
+			L"STATIC", history,
+			WS_CHILD | WS_VISIBLE | SS_LEFT,
+			0, 0, clientAera.right, 80000 / clientAera.right > 100 ? 80000 / clientAera.right : 100,
+			hwnd,
+			(HMENU)114514, hinstance, NULL);
+	}break;
 	case WM_DESTROY:
 		return HANDLE_WM_DESTROY(hwnd, wParam, lParam, MainWindow_Cls_OnDestroy);
 	case WM_COMMAND:

@@ -9,7 +9,8 @@ int WINAPI wWinMain(
 	_In_ LPWSTR lpCmdline,
 	_In_ int nShowCmd
 ) {
-	if (LogIn(hInstance) == 0) {
+	ID = LogIn(hInstance);
+	if (ID == 0) {
 		ErrorCatching(L"Login Exception", hwnd);
 		PostQuitMessage(0);
 	}
