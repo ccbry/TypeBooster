@@ -40,7 +40,7 @@ score* readHistory(score* out, UINT ID) {
 		WCHAR hst[10] = { 0 };
 		StringCchPrintf(hst, 10, L"%dhis%d", ID, i);
 		WCHAR accur[10];
-		GetProfileString(hst, L"accuracy", L"0.0", accur, 10);
+		GetPrivateProfileString(hst, L"accuracy", L"0.0", accur, 10, L"..\\etc\\history.ini");
 		out[i].accuracy = wcstof(accur, NULL);
 		out[i].back = GetPrivateProfileInt(hst, L"back", 0, L"..\\etc\\history.ini");
 		out[i].error_count = GetPrivateProfileInt(hst, L"error_count", 0, L"..\\etc\\history.ini");

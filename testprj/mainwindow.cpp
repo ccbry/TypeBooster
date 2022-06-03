@@ -1,5 +1,22 @@
 #include"mainwindow.h"
 LPCWSTR WINDOW_CLASS_NAME = L"MainWindowForTyper";
+HANDLE CreateFont()
+{
+	LOGFONT lf;
+	ZeroMemory(&lf, sizeof(lf));
+
+	// ÉèÖÃ×ÖÌåÎªCourier New
+	lf.lfHeight = 20;
+	lf.lfWidth = 8;
+	lf.lfWeight = 500;
+	lf.lfOutPrecision = 3;
+	lf.lfClipPrecision = 2;
+	lf.lfQuality = PROOF_QUALITY;
+	lf.lfPitchAndFamily = 1;
+	StringCchCopyW((STRSAFE_LPWSTR)&lf.lfFaceName, 32, L"Courier New");
+
+	return CreateFontIndirectW(&lf);
+}
 void MainWindow_Cls_OnDestroy(HWND hWnd) {
 	PostQuitMessage(0);
 }
@@ -55,14 +72,14 @@ LRESULT CALLBACK mainWindowProc(
 	GetClientRect(hwnd, &clientAera);
 	switch (uint) {
 	case WM_CREATE: {
-		CreateDisplay(hinstance, hwnd, 80000 / clientAera.right > 100 ? 80000 / clientAera.right : 100);
-		CreateInput(hinstance, hwnd, 80000 / clientAera.right > 100 ? 80000 / clientAera.right : 100);
+		CreateDisplay(hinstance, hwnd, 80000 / clientAera.right > 100 ? 200 : 100);
+		CreateInput(hinstance, hwnd, 80000 / clientAera.right > 100 ? 200 : 100);
 		score his[5] = { 0 };
 		readHistory(his, ID);
 		hwnd2 = CreateWindow(
 			L"STATIC", L"abc",
 			WS_CHILD | WS_VISIBLE | SS_LEFT,
-			0, 0, clientAera.right, 80000 / clientAera.right > 100 ? 80000 / clientAera.right : 100,
+			0, 0, clientAera.right, 80000 / clientAera.right > 100 ? 200 : 100,
 			hwnd,
 			(HMENU)114514, hinstance, NULL);
 		StringCchPrintf(history, 300,
@@ -85,9 +102,10 @@ LRESULT CALLBACK mainWindowProc(
 		hwnd2 = CreateWindow(
 			L"STATIC", history,
 			WS_CHILD | WS_VISIBLE | SS_LEFT,
-			0, 0, clientAera.right, 80000 / clientAera.right > 100 ? 80000 / clientAera.right : 100,
+			0, 0, clientAera.right, 80000 / clientAera.right > 100 ? 200 : 100,
 			hwnd,
 			(HMENU)114514, hinstance, NULL);
+		SendMessageW(hwnd2, WM_SETFONT, (WPARAM)CreateFont(), TRUE);
 	}break;
 	case WM_NOTIFY:
 	{
@@ -118,7 +136,7 @@ LRESULT CALLBACK mainWindowProc(
 		RECT clientAera;
 		GetClientRect(hwnd, &clientAera);
 		if (HIWORD(wParam) == EN_CHANGE)
-			InPuting(80000 / clientAera.right > 100 ? 80000 / clientAera.right : 100);
+			InPuting(80000 / clientAera.right > 100 ? 200 : 100);
 		return HANDLE_WM_COMMAND(hwnd, wParam, lParam, MainWindow_Cls_OnCommand);
 	}
 	default: return DefWindowProc(hwnd, uint, wParam, lParam);
