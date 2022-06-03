@@ -43,7 +43,7 @@ LRESULT CALLBACK SelectWindowProc(HWND hwnd, UINT uint, WPARAM wParam, LPARAM lP
 			NULL, NULL);
 		ListView_SetExtendedListViewStyle(articleList, LVS_EX_FULLROWSELECT | LVS_EX_GRIDLINES);
 
-		HWND hDeleteButton = CreateWindow(WC_BUTTON, L"Select",
+		HWND hSelectButton = CreateWindow(WC_BUTTON, L"Select",
 			WS_VISIBLE | WS_CHILD | BS_PUSHBUTTON,
 			0 + clientAera.right / 3, clientAera.bottom * 0.9, clientAera.right / 3, clientAera.bottom * 0.1,
 			hwnd, (HMENU)IDC_SELECTBUTTON, NULL, NULL);
@@ -131,6 +131,11 @@ BOOL regSelectWindow() {
 */
 BOOL randomArticle() {
 	UINT NumOfFileInIni = GetPrivateProfileInt(L"Total_Item", L"count", -1, L"..\\etc\\docList.ini");
+	if (NumOfFileInIni == 0) {
+		MessageBox(hwnd, L"No datium in article list!", L"error", NULL);
+		return FALSE;
+	}
+
 	Infile namearray = { 0 };
 	readProfile(&namearray);
 	srand((UINT)time(NULL));

@@ -135,8 +135,6 @@ BOOL createWindowInstance(HINSTANCE hInstance, int cmdShow) {
 	return TRUE;
 }
 
-
-
 /*
 * start the main window
 */
