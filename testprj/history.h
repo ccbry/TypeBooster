@@ -2,6 +2,7 @@
 #include"IniIo.h"
 #include<Windows.h>
 #include<strsafe.h>
+#include<stdlib.h>
 typedef struct SCORE {
 	UINT word_count;
 	UINT error_count;

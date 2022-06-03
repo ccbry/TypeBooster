@@ -10,6 +10,9 @@ VOID addHistory(score toadd, UINT ID) {
 	for (UINT i = 0; i < 5; i++) {
 		WCHAR hst[10] = { 0 };
 		StringCchPrintf(hst, 10, L"%dhis%d", ID, i);
+		WCHAR accuracy[10];
+		StringCchPrintf(accuracy, 10, L"%f", pre[i].accuracy);
+		WriteProfile(hst, L"accuracy", accuracy, L"..\\etc\\history.ini");
 		WCHAR back[5];
 		StringCchPrintf(back, 5, L"%d", pre[i].back);
 		WriteProfile(hst, L"back", back, L"..\\etc\\history.ini");
@@ -33,7 +36,9 @@ score* readHistory(score* out, UINT ID) {
 	for (UINT i = 0; i < 5; i++) {
 		WCHAR hst[10] = { 0 };
 		StringCchPrintf(hst, 10, L"%dhis%d", ID, i);
-		//ret[i].accuracy = GetPrivateProfileIntW
+		WCHAR accur[10];
+		GetProfileString(hst, L"accuracy", L"0.0", accur, 10);
+		out[i].accuracy = wcstof(accur, NULL);
 		out[i].back = GetPrivateProfileInt(hst, L"back", 0, L"..\\etc\\history.ini");
 		out[i].error_count = GetPrivateProfileInt(hst, L"error_count", 0, L"..\\etc\\history.ini");
 		out[i].speed = GetPrivateProfileInt(hst, L"speed", 0, L"..\\etc\\history.ini");
