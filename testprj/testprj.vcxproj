@@ -141,13 +141,27 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="about.cpp" />
+    <ClCompile Include="Error.cpp" />
+    <ClCompile Include="globle.cpp" />
+    <ClCompile Include="IniIO.cpp" />
     <ClCompile Include="Main.cpp" />
     <ClCompile Include="login.cpp" />
+    <ClCompile Include="manage.cpp" />
+    <ClCompile Include="music.cpp" />
+    <ClCompile Include="select.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="about.h" />
+    <ClInclude Include="Error.h" />
+    <ClInclude Include="globle.h" />
+    <ClInclude Include="IniIo.h" />
+    <ClInclude Include="manage.h" />
+    <ClInclude Include="music.h" />
     <ClInclude Include="resource.h" />
     <ClInclude Include="login.h" />
     <ClInclude Include="main.h" />
+    <ClInclude Include="select.h" />
   </ItemGroup>
   <ItemGroup>
     <ResourceCompile Include="test.rc" />

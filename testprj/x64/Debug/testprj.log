@@ -1,21 +1,24 @@
-﻿  Main.cpp
-H:\vs project\typer\ccbry\TypeBooster\testprj\Main.cpp(213,12): warning C4244: 'return': conversion from 'WPARAM' to 'int', possible loss of data
-H:\vs project\typer\ccbry\TypeBooster\testprj\Main.cpp(283,43): warning C4267: 'argument': conversion from 'size_t' to 'int', possible loss of data
-H:\vs project\typer\ccbry\TypeBooster\testprj\Main.cpp(284,80): warning C4267: 'argument': conversion from 'size_t' to 'int', possible loss of data
-H:\vs project\typer\ccbry\TypeBooster\testprj\Main.cpp(285,94): warning C4267: 'argument': conversion from 'size_t' to 'int', possible loss of data
-H:\vs project\typer\ccbry\TypeBooster\testprj\Main.cpp(286,77): warning C4267: 'argument': conversion from 'size_t' to 'int', possible loss of data
-H:\vs project\typer\ccbry\TypeBooster\testprj\Main.cpp(287,107): warning C4267: 'argument': conversion from 'size_t' to 'int', possible loss of data
-H:\vs project\typer\ccbry\TypeBooster\testprj\Main.cpp(288,109): warning C4267: 'argument': conversion from 'size_t' to 'int', possible loss of data
-H:\vs project\typer\ccbry\TypeBooster\testprj\Main.cpp(426,1): warning C4244: 'argument': conversion from 'double' to 'int', possible loss of data
-H:\vs project\typer\ccbry\TypeBooster\testprj\Main.cpp(434,1): warning C4244: 'argument': conversion from 'double' to 'int', possible loss of data
-H:\vs project\typer\ccbry\TypeBooster\testprj\Main.cpp(438,1): warning C4244: 'argument': conversion from 'double' to 'int', possible loss of data
-H:\vs project\typer\ccbry\TypeBooster\testprj\Main.cpp(442,1): warning C4244: 'argument': conversion from 'double' to 'int', possible loss of data
-H:\vs project\typer\ccbry\TypeBooster\testprj\Main.cpp(425,20): warning C4102: 'PaintManageWindow': unreferenced label
-H:\vs project\typer\ccbry\TypeBooster\testprj\Main.cpp(654,1): warning C4244: 'argument': conversion from 'double' to 'int', possible loss of data
-H:\vs project\typer\ccbry\TypeBooster\testprj\Main.cpp(663,1): warning C4244: 'argument': conversion from 'double' to 'int', possible loss of data
-H:\vs project\typer\ccbry\TypeBooster\testprj\Main.cpp(653,19): warning C4102: 'PaintManageWindow': unreferenced label
-H:\vs project\typer\ccbry\TypeBooster\testprj\Main.cpp(302): warning C4715: 'aboutWindowProc': not all control paths return a value
-H:\vs project\typer\ccbry\TypeBooster\testprj\Main.cpp(404): warning C4172: returning address of local variable or temporary: fileInfo
-H:\vs project\typer\ccbry\TypeBooster\testprj\Main.cpp(726): warning C4715: 'SelectWindowProc': not all control paths return a value
-H:\vs project\typer\ccbry\TypeBooster\testprj\Main.cpp(555): warning C4715: 'ManageWindowProc': not all control paths return a value
+﻿  Error.cpp
+  Main.cpp
+H:\vs project\typer\ccbry\TypeBooster\testprj\Main.cpp(157,12): warning C4244: 'return': conversion from 'WPARAM' to 'int', possible loss of data
+  about.cpp
+H:\vs project\typer\ccbry\TypeBooster\testprj\about.cpp(18,43): warning C4267: 'argument': conversion from 'size_t' to 'int', possible loss of data
+H:\vs project\typer\ccbry\TypeBooster\testprj\about.cpp(19,80): warning C4267: 'argument': conversion from 'size_t' to 'int', possible loss of data
+H:\vs project\typer\ccbry\TypeBooster\testprj\about.cpp(20,94): warning C4267: 'argument': conversion from 'size_t' to 'int', possible loss of data
+H:\vs project\typer\ccbry\TypeBooster\testprj\about.cpp(21,77): warning C4267: 'argument': conversion from 'size_t' to 'int', possible loss of data
+H:\vs project\typer\ccbry\TypeBooster\testprj\about.cpp(22,107): warning C4267: 'argument': conversion from 'size_t' to 'int', possible loss of data
+H:\vs project\typer\ccbry\TypeBooster\testprj\about.cpp(23,109): warning C4267: 'argument': conversion from 'size_t' to 'int', possible loss of data
+  globle.cpp
+  login.cpp
+  manage.cpp
+H:\vs project\typer\ccbry\TypeBooster\testprj\manage.cpp(73,1): warning C4244: 'argument': conversion from 'double' to 'int', possible loss of data
+H:\vs project\typer\ccbry\TypeBooster\testprj\manage.cpp(81,1): warning C4244: 'argument': conversion from 'double' to 'int', possible loss of data
+H:\vs project\typer\ccbry\TypeBooster\testprj\manage.cpp(85,1): warning C4244: 'argument': conversion from 'double' to 'int', possible loss of data
+H:\vs project\typer\ccbry\TypeBooster\testprj\manage.cpp(89,1): warning C4244: 'argument': conversion from 'double' to 'int', possible loss of data
+H:\vs project\typer\ccbry\TypeBooster\testprj\manage.cpp(72,19): warning C4102: 'PaintManageWindow': unreferenced label
+  music.cpp
+  Generating Code...
+H:\vs project\typer\ccbry\TypeBooster\testprj\manage.cpp(51): warning C4172: returning address of local variable or temporary: fileInfo
+H:\vs project\typer\ccbry\TypeBooster\testprj\manage.cpp(202): warning C4715: 'ManageWindowProc': not all control paths return a value
+H:\vs project\typer\ccbry\TypeBooster\testprj\about.cpp(37): warning C4715: 'aboutWindowProc': not all control paths return a value
   testprj.vcxproj -> H:\vs project\typer\ccbry\TypeBooster\x64\Debug\testprj.exe

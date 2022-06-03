@@ -1,5 +1,23 @@
 #include"login.h"
 
+wchar_t username[MAXLEN] = { 0 };
+wchar_t password[MAXLEN] = { 0 };
+wchar_t password2[MAXLEN] = { 0 };
+
+//wchar_t s1[] = L"朱江云";
+//wchar_t s2[] = L"1234";
+
+//标记配置文件中用户个数
+wchar_t MAXIDW[10] = { '\0' };
+int MAXID = 0;
+int current_user;
+//用户配置文件目录
+wchar_t config_file_name[] = L".\\config.ini";
+//创建一个handle变量用于标识配置文件是否已经存在
+HANDLE find_file;
+
+//创建一个全局变量用于存放句柄
+HINSTANCE hinst;
 // 程序入口点
 int LogIn(HINSTANCE hInstance)
 {
