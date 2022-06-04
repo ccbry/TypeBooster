@@ -29,7 +29,7 @@ VOID CreateInput(HINSTANCE hInstance, HWND hParent, UINT YAxis)
     LoadLibrary(TEXT("Msftedit.dll"));
     hInPut = CreateWindow(L"RICHEDIT50W", TEXT(""),
         ES_AUTOVSCROLL | ES_MULTILINE | WS_VISIBLE | WS_CHILD | WS_BORDER | WS_VSCROLL,
-        50, (rect.bottom - YAxis) / 2, rect.right - 100, rect.bottom - 400,
+        50, (rect.bottom - YAxis) / 2 + 70, rect.right - 100, rect.bottom - 400,
         hParent, NULL, hInstance, NULL);
 
     SendMessageW(hInPut, EM_SETEVENTMASK, 0, ENM_CHANGE | ENM_KEYEVENTS);
@@ -84,6 +84,7 @@ DWORD CALLBACK DisplayStreamInCallback(DWORD_PTR dwCookie, LPBYTE pbBuff, LONG c
 VOID InPuting(UINT YAxis)
 {
     INT len = GetWindowTextLengthW(hInPut) + 1;
+    INT lenDisplay = GetWindowTextLengthW(hDisplay) + 1;
     WCHAR TempInPut[1000];
     GetWindowTextW(hInPut, TempInPut, len);
     FINDTEXTEX ftex;
@@ -95,6 +96,8 @@ VOID InPuting(UINT YAxis)
     INT b = 0;
     //统计错误
     INT error = 0;
+
+    SetTimer(GetParent(hInPut), 1, 100, (TIMERPROC)TimerProc);
 
     for (int i = 1; i < len; i++)
     {
@@ -131,7 +134,8 @@ VOID InPuting(UINT YAxis)
 
     DisplayScore.word_count = len - 1 - 2 * b;
     DisplayScore.error_count = error;
-    DisplayScore.accuracy = (float)(DisplayScore.word_count - DisplayScore.error_count) / DisplayScore.word_count;
+    DisplayScore.accuracy = (DOUBLE)(DisplayScore.word_count - DisplayScore.error_count) / DisplayScore.word_count;
+    
 
     if (PreLen > len - 1)
         for (int i = len; i <= PreLen; i++)
@@ -145,9 +149,43 @@ VOID InPuting(UINT YAxis)
             cf.crBackColor = RGB(255, 255, 255);
             SendMessage(hDisplay, EM_SETCHARFORMAT, SCF_SELECTION, (LPARAM)&cf);
         }
+    if (len == lenDisplay && DisplayScore.error_count == 0)
+    {
+        KillTimer(hwnd, 1);
+        WCHAR scoreOut[30];
+        StringCchPrintf(scoreOut, 30, L"您的用时为：%.1fs，输入速度为：%f字/秒，再接再厉！", (DOUBLE)DisplayScore.time / 1000, DisplayScore.speed);
+        MessageBox(hwnd, scoreOut, L"Tip", NULL);
+        addHistory(DisplayScore, ID);
+    }
     SetFocus(hDisplay);
     SetFocus(hInPut);
     PreLen = len - 1;
 }
 
+VOID ShowScore(HWND hwnd)
+{
+    WCHAR ScoreString[100];
+    StringCchPrintf(ScoreString,
+        100,
+        L"字数：%d，错误数：%d，准确度：%.2f，按键次数：%d，退格次数：%d，速度：%.2f，时间：%.2f",
+        DisplayScore.word_count, DisplayScore.error_count, DisplayScore.accuracy,
+        DisplayScore.key_count, DisplayScore.back / 2, DisplayScore.speed, (FLOAT)DisplayScore.time / 1000);
+    SetWindowText(hStatic, ScoreString);
+    memset(ScoreString, 0, sizeof(ScoreString));
+}
+
+
+VOID CALLBACK TimerProc(HWND hwnd, UINT nMsg, UINT nTimerid, DWORD dwTime)
+{
+    DisplayScore.time += 100;
+    if (DisplayScore.time == 0) {
+        DisplayScore.speed = 0;
+    }
+    else
+    {
+        DOUBLE timeInSec = DisplayScore.time / 1000.0;
+        DisplayScore.speed = (DOUBLE)(DisplayScore.word_count / timeInSec);
+    }
+    ShowScore(hwnd);
+}
 //TODO: HideCaret

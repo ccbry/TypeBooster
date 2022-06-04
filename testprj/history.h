@@ -6,10 +6,10 @@
 typedef struct SCORE {
 	UINT word_count;
 	UINT error_count;
-	FLOAT accuracy;
+	DOUBLE accuracy;
 	UINT key_count;
 	UINT back;
-	UINT speed;
+	DOUBLE speed;
 	UINT time;
 }score;
 VOID addHistory(score toAdd, UINT ID);

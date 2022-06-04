@@ -1,4 +1,5 @@
-﻿  mainwindow.cpp
-H:\vs project\typer\ccbry\TypeBooster\testprj\mainwindow.cpp(217,12): warning C4244: 'return': conversion from 'WPARAM' to 'int', possible loss of data
-H:\vs project\typer\ccbry\TypeBooster\testprj\mainwindow.cpp(144): warning C4715: 'mainWindowProc': not all control paths return a value
-  testprj.vcxproj -> H:\vs project\typer\ccbry\TypeBooster\x64\Debug\testprj.exe
+﻿  inputing.cpp
+C:\Users\ZJY\source\repos\TypeBooster\testprj\inputing.cpp(119,31): warning C4244: “=”: 从“LRESULT”转换到“int”，可能丢失数据
+C:\Users\ZJY\source\repos\TypeBooster\testprj\inputing.cpp(140,16): warning C4018: “>”: 有符号/无符号不匹配
+C:\Users\ZJY\source\repos\TypeBooster\testprj\inputing.cpp(141,29): warning C4018: “<=”: 有符号/无符号不匹配
+  testprj.vcxproj -> C:\Users\ZJY\source\repos\TypeBooster\x64\Debug\testprj.exe

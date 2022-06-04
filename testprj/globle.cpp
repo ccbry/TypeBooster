@@ -7,3 +7,4 @@
  score DisplayScore = { 0 };
  HWND hInPut = { 0 };
  HWND hDisplay = { 0 };
+ HWND hStatic = 0;

@@ -9,3 +9,4 @@ extern UINT ID;
 extern score DisplayScore;
 extern HWND hInPut;
 extern HWND hDisplay;
+extern HWND hStatic;

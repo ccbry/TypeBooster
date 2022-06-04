@@ -19,3 +19,7 @@ BOOL judge(wchar_t username[], wchar_t password[]);
 BOOL judge_username(wchar_t username[]);
 
 int LogIn(HINSTANCE);
+
+VOID CALLBACK TimerProc(HWND hwnd, UINT nMsg, UINT nTimerid, DWORD dwTime);
+
+VOID ShowScore(HWND);
