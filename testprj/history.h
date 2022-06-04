@@ -10,7 +10,7 @@ typedef struct SCORE {
 	UINT key_count;
 	UINT back;
 	DOUBLE speed;
-	UINT time;
+	DOUBLE time;
 }score;
 VOID addHistory(score toAdd, UINT ID);
 score* readHistory(score* out, UINT ID);
