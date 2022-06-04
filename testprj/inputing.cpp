@@ -154,7 +154,8 @@ VOID InPuting(UINT YAxis)
         KillTimer(hwnd, 1);
         WCHAR scoreOut[30];
         StringCchPrintf(scoreOut, 30, L"您的用时为：%.1fs，输入速度为：%f字/秒，再接再厉！", (DOUBLE)DisplayScore.time / 1000, DisplayScore.speed);
-        MessageBox(hwnd, scoreOut, L"Tip", NULL);
+        MessageBox(hwnd, scoreOut, L"Tip", MB_OK);
+        SetWindowTextW(hInPut, L"");
         addHistory(DisplayScore, ID);
     }
     SetFocus(hDisplay);
