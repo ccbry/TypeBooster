@@ -8,7 +8,6 @@ BOOL selectedArticle() {
 		L"Selectwindow",
 		L"Select",
 		WS_OVERLAPPED | WS_CAPTION | WS_SYSMENU,
-		// Size and position
 		200, 200, 400, 500,
 		NULL,
 		NULL,

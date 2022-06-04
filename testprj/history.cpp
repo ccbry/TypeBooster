@@ -1,4 +1,7 @@
 #include"history.h"
+/*
+* add current socre to history.ini
+*/
 VOID addHistory(score toadd, UINT ID) {
 	score pre[5] = { 0 };
 	readHistory(pre, ID);
@@ -33,7 +36,11 @@ VOID addHistory(score toadd, UINT ID) {
 		WriteProfile(hst, L"word_count", word_count, L"..\\etc\\history.ini");
 	}
 }	
-
+/*
+* read history.ini
+* param: array of score to return, user id
+* return the address of the array
+*/
 score* readHistory(score* out, UINT ID) {
 
 	for (UINT i = 0; i < 5; i++) {

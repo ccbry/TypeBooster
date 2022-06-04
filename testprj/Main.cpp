@@ -28,9 +28,3 @@ int WINAPI wWinMain(
 	return 0;
 }
 
-
-//TODO: test music cycle
-//TODO: about https
-//TODO: high dpi
-//TODO: history and display
-//TODO: 

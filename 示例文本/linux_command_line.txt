@@ -1,0 +1,15 @@
+I want to tell you a story. No, not the story of how, in 1991, Linus
+Torvalds wrote the first version of the Linux kernel. You can read that
+story in lots of Linux books. Nor am I going to tell you the story of
+how, some years earlier, Richard Stallman began the GNU Project to
+create a free Unix-like operating system. That's an important story too,
+but most other Linux books have that one, as well.
+No, I want to tell you the story of how you take back control of your
+computer.
+When I began working with computers as a college student in the
+late 1970s, there was a revolution going on. The invention of the
+microprocessor had made it possible for ordinary people like you and
+me to actually own a computer. It's hard for many people today to
+imagine what the world was like when only big business and big
+government ran all the computers. Let's just say, you couldn't get much
+done.

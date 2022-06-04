@@ -1,5 +1,9 @@
 #include"IniIo.h"
-
+/*
+* read dcolist.ini and seprate the name of file into a string array
+* param: a struct that hold a string array
+* return the address of the input struct
+*/
 Infile* readProfile(Infile* ret) {
 	WCHAR inFileBuffer[64 * 128] = { 0 };
 	GetPrivateProfileSectionNames(inFileBuffer, 64 * 128, L"..\\etc\\docList.ini");

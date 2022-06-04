@@ -1,5 +1,1 @@
-﻿  inputing.cpp
-H:\vs project\tb\testprj\inputing.cpp(119,31): warning C4244: '=': conversion from 'LRESULT' to 'int', possible loss of data
-H:\vs project\tb\testprj\inputing.cpp(140,16): warning C4018: '>': signed/unsigned mismatch
-H:\vs project\tb\testprj\inputing.cpp(141,29): warning C4018: '<=': signed/unsigned mismatch
-  testprj.vcxproj -> H:\vs project\tb\x64\Debug\testprj.exe
+﻿  testprj.vcxproj -> H:\vs project\tb\x64\Debug\testprj.exe
