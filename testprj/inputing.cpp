@@ -29,7 +29,7 @@ VOID CreateInput(HINSTANCE hInstance, HWND hParent, UINT YAxis)
     LoadLibrary(TEXT("Msftedit.dll"));
     hInPut = CreateWindow(L"RICHEDIT50W", TEXT(""),
         ES_AUTOVSCROLL | ES_MULTILINE | WS_VISIBLE | WS_CHILD | WS_BORDER | WS_VSCROLL,
-        50, (rect.bottom - YAxis) / 2 + 70, rect.right - 100, rect.bottom - 400,
+        50, (rect.bottom - YAxis) / 2 + 70, rect.right - 100, rect.bottom - ((rect.bottom - YAxis) / 2 + 70) - 40,
         hParent, NULL, hInstance, NULL);
 
     SendMessageW(hInPut, EM_SETEVENTMASK, 0, ENM_CHANGE | ENM_KEYEVENTS);
@@ -152,11 +152,12 @@ VOID InPuting(UINT YAxis)
     if (len == lenDisplay && DisplayScore.error_count == 0)
     {
         KillTimer(hwnd, 1);
-        WCHAR scoreOut[30];
-        StringCchPrintf(scoreOut, 30, L"您的用时为：%.1fs，输入速度为：%f字/秒，再接再厉！", (DOUBLE)DisplayScore.time / 1000, DisplayScore.speed);
+        WCHAR scoreOut[35];
+        StringCchPrintf(scoreOut, 35, L"您的用时为：%.1fs，输入速度为：%.2f字/s，再接再厉！", (DOUBLE)DisplayScore.time / 1000, DisplayScore.speed);
         MessageBox(hwnd, scoreOut, L"Tip", MB_OK);
         SetWindowTextW(hInPut, L"");
         addHistory(DisplayScore, ID);
+        memset(&DisplayScore, 0, sizeof(DisplayScore));
     }
     SetFocus(hDisplay);
     SetFocus(hInPut);

@@ -91,6 +91,7 @@ LRESULT CALLBACK SelectWindowProc(HWND hwnd, UINT uint, WPARAM wParam, LPARAM lP
 				ListView_GetItemText(articleList, selectedRow, 1, returnPath, 128);
 				if (*returnPath != NULL) {
 					ShowWindow(hwnd, SW_HIDE);
+					LoadFile(returnPath);
 				}
 				else {
 					MessageBox(hwnd, L"Please select a text file.", L"Tip", NULL);
@@ -141,5 +142,6 @@ BOOL randomArticle() {
 	srand((UINT)time(NULL));
 	UINT ret = 1 + rand() % NumOfFileInIni;
 	GetPrivateProfileString(namearray.nameArray[ret], L"path", L"error", returnPath, 128, L"..\\etc\\docList.ini");
+	LoadFile(returnPath);
 	return TRUE;
 }

@@ -8,6 +8,7 @@
 #include"globle.h"
 #include"IniIo.h"
 #include"manage.h"
+#include"inputing.h"
 //Below are Function prototypes and constants used in article selection
 BOOL randomArticle();
 BOOL selectedArticle();

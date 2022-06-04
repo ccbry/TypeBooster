@@ -31,10 +31,14 @@ BOOL regManageWindow() {
 LPWSTR* SelectFileToAdd() {
 	IFileOpenDialog* pFileOpen;
 	LPWSTR fileInfo[2] = { NULL, NULL };
+	COMDLG_FILTERSPEC SUPPORTED_FILE_TYPES[] = {
+  { TEXT("text"), TEXT("*.txt") }
+	};
 
 	// Create the FileOpenDialog object.
 	HRESULT hr = CoCreateInstance(CLSID_FileOpenDialog, NULL, CLSCTX_ALL,
 		IID_IFileOpenDialog, reinterpret_cast<void**>(&pFileOpen));
+	pFileOpen->SetFileTypes(1,SUPPORTED_FILE_TYPES);
 	if (SUCCEEDED(hr))
 	{
 		hr = pFileOpen->Show(NULL);
