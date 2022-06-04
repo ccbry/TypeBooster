@@ -1,7 +1,8 @@
 {
   "ExpandedNodes": [
-    ""
+    "",
+    "\\testprj"
   ],
-  "SelectedNode": "\\testprj.sln",
+  "SelectedNode": "\\testprj\\login.cpp",
   "PreviewInSolutionExplorer": false
 }

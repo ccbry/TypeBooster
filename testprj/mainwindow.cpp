@@ -67,7 +67,7 @@ LRESULT CALLBACK mainWindowProc(
 
 ) {
 	static HWND hwnd2;
-	static WCHAR history[300];
+	static WCHAR history[400];
 	static RECT clientAera;
 	GetClientRect(hwnd, &clientAera);
 	switch (uint) {
@@ -78,21 +78,21 @@ LRESULT CALLBACK mainWindowProc(
 		readHistory(his, ID);
 		hwnd2 = CreateWindow(
 			L"STATIC", L"abc",
-			WS_CHILD | WS_VISIBLE | SS_LEFT,
+			WS_CHILD | WS_VISIBLE | SS_CENTER,
 			0, 0, clientAera.right, 80000 / clientAera.right > 100 ? 200 : 100,
 			hwnd,
 			(HMENU)114514, hinstance, NULL);
-		StringCchPrintf(history, 300,
-			L"历史1：字数：%d，错误数：%d，准确度：%f%，按键次数：%d，退格次数：%d，速度：%d，时间：%d\n"
-			L"历史2：字数：%d，错误数：%d，准确度：%f%，按键次数：%d，退格次数：%d，速度：%d，时间：%d\n"
-			L"历史3：字数：%d，错误数：%d，准确度：%f%，按键次数：%d，退格次数：%d，速度：%d，时间：%d\n"
-			L"历史4：字数：%d，错误数：%d，准确度：%f%，按键次数：%d，退格次数：%d，速度：%d，时间：%d\n"
-			L"历史5：字数：%d，错误数：%d，准确度：%f%，按键次数：%d，退格次数：%d，速度：%d，时间：%d\n",
-			his[0].word_count, his[0].error_count, his[0].accuracy, his[0].key_count, his[0].back, his[0].speed, his[0].time,
-			his[1].word_count, his[1].error_count, his[1].accuracy, his[1].key_count, his[1].back, his[1].speed, his[1].time,
-			his[2].word_count, his[2].error_count, his[2].accuracy, his[2].key_count, his[2].back, his[2].speed, his[2].time,
-			his[3].word_count, his[3].error_count, his[3].accuracy, his[3].key_count, his[3].back, his[3].speed, his[3].time,
-			his[4].word_count, his[4].error_count, his[4].accuracy, his[4].key_count, his[4].back, his[4].speed, his[4].time);
+		StringCchPrintf(history, 400,
+			L"历史1：字数：%d，错误数：%d，准确度：%.2f，按键次数：%d，退格次数：%d，速度：%d，时间：%.3f\n"
+			L"历史2：字数：%d，错误数：%d，准确度：%.2f，按键次数：%d，退格次数：%d，速度：%d，时间：%.3f\n"
+			L"历史3：字数：%d，错误数：%d，准确度：%.2f，按键次数：%d，退格次数：%d，速度：%d，时间：%.3f\n"
+			L"历史4：字数：%d，错误数：%d，准确度：%.2f，按键次数：%d，退格次数：%d，速度：%d，时间：%.3f\n"
+			L"历史5：字数：%d，错误数：%d，准确度：%.2f，按键次数：%d，退格次数：%d，速度：%d，时间：%.3f\n",
+			his[0].word_count, his[0].error_count, his[0].accuracy, his[0].key_count, his[0].back, his[0].speed, (FLOAT)his[0].time/1000,
+			his[1].word_count, his[1].error_count, his[1].accuracy, his[1].key_count, his[1].back, his[1].speed, (FLOAT)his[1].time/1000,
+			his[2].word_count, his[2].error_count, his[2].accuracy, his[2].key_count, his[2].back, his[2].speed, (FLOAT)his[2].time/1000,
+			his[3].word_count, his[3].error_count, his[3].accuracy, his[3].key_count, his[3].back, his[3].speed, (FLOAT)his[3].time/1000,
+			his[4].word_count, his[4].error_count, his[4].accuracy, his[4].key_count, his[4].back, his[4].speed, (FLOAT)his[4].time/1000);
 		SetWindowText(hwnd2, history);
 		SetFocus(hInPut);
 	}break;
@@ -101,7 +101,7 @@ LRESULT CALLBACK mainWindowProc(
 		DestroyWindow(hwnd2);
 		hwnd2 = CreateWindow(
 			L"STATIC", history,
-			WS_CHILD | WS_VISIBLE | SS_LEFT,
+			WS_CHILD | WS_VISIBLE | SS_CENTER,
 			0, 0, clientAera.right, 80000 / clientAera.right > 100 ? 200 : 100,
 			hwnd,
 			(HMENU)114514, hinstance, NULL);
