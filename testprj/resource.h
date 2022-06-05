@@ -11,7 +11,6 @@
 #define ID_FILE_MANAGEARTICLES          40006
 #define ID_FILE_EXIT                    40007
 #define ID_HELP_ABOUT                   40008
-#define ID_HELP_MANUAL                  40009
 
 #define IDOK2                           2
 #define IDD_DIALOG1                     101
