@@ -32,7 +32,7 @@ LPWSTR* SelectFileToAdd() {
 	IFileOpenDialog* pFileOpen;
 	LPWSTR fileInfo[2] = { NULL, NULL };
 	COMDLG_FILTERSPEC SUPPORTED_FILE_TYPES[] = {
-  { TEXT("text"), TEXT("*.txt") }
+  { TEXT("text"), TEXT("*.text") }
 	};
 
 	// Create the FileOpenDialog object.
