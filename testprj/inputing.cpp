@@ -29,7 +29,7 @@ VOID CreateInput(HINSTANCE hInstance, HWND hParent, UINT YAxis)
     LoadLibrary(TEXT("Msftedit.dll"));
     hInPut = CreateWindow(L"RICHEDIT50W", TEXT(""),
         ES_AUTOVSCROLL | ES_MULTILINE | WS_VISIBLE | WS_CHILD | WS_BORDER | WS_VSCROLL,
-        50, (rect.bottom - YAxis) / 2 + 70, rect.right - 100, rect.bottom - ((rect.bottom - YAxis) / 2 + 70) - 40,
+        50, (rect.bottom - YAxis) / 2 + 100, rect.right - 100, rect.bottom - ((rect.bottom - YAxis) / 2 + 70) - 40,
         hParent, NULL, hInstance, NULL);
 
     SendMessageW(hInPut, EM_SETEVENTMASK, 0, ENM_CHANGE | ENM_KEYEVENTS);
@@ -149,6 +149,13 @@ VOID InPuting(UINT YAxis)
             cf.crBackColor = RGB(255, 255, 255);
             SendMessage(hDisplay, EM_SETCHARFORMAT, SCF_SELECTION, (LPARAM)&cf);
         }
+    
+    if (len == 1)
+    {
+        KillTimer(hwnd, 1);
+        memset(&DisplayScore, 0, sizeof(DisplayScore));
+        ShowScore(hwnd);
+    }
     if (len == lenDisplay && DisplayScore.error_count == 0)
     {
         KillTimer(hwnd, 1);

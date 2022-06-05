@@ -100,7 +100,7 @@ LRESULT CALLBACK mainWindowProc(
 			L"static",
 			NULL,
 			WS_CHILD /*子窗口*/ | WS_VISIBLE /*创建时显示*/ | WS_BORDER /*带边框*/ | SS_CENTER /*水平居中*/ | SS_CENTERIMAGE /*垂直居中*/,
-			50, rect.bottom + 110, rect.right+20, 70,
+			50, rect.bottom + 110, rect.right, 40,
 			hwnd,
 			(HMENU)1,
 			hinstance,

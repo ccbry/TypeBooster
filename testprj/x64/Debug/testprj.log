@@ -1,9 +1,1 @@
-﻿  manage.cpp
-C:\Users\ZJY\TypeBooster\testprj\manage.cpp(77,1): warning C4244: “参数”: 从“double”转换到“int”，可能丢失数据
-C:\Users\ZJY\TypeBooster\testprj\manage.cpp(85,1): warning C4244: “参数”: 从“double”转换到“int”，可能丢失数据
-C:\Users\ZJY\TypeBooster\testprj\manage.cpp(89,1): warning C4244: “参数”: 从“double”转换到“int”，可能丢失数据
-C:\Users\ZJY\TypeBooster\testprj\manage.cpp(93,1): warning C4244: “参数”: 从“double”转换到“int”，可能丢失数据
-C:\Users\ZJY\TypeBooster\testprj\manage.cpp(76,19): warning C4102: “PaintManageWindow”: 未引用的标签
-C:\Users\ZJY\TypeBooster\testprj\manage.cpp(55): warning C4172: 返回局部变量或临时变量的地址: fileInfo
-C:\Users\ZJY\TypeBooster\testprj\manage.cpp(206): warning C4715: “ManageWindowProc”: 不是所有的控件路径都返回值
-  testprj.vcxproj -> C:\Users\ZJY\TypeBooster\x64\Debug\testprj.exe
+﻿  testprj.vcxproj -> C:\Users\ZJY\TypeBooster\x64\Debug\testprj.exe
