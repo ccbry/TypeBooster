@@ -2,7 +2,7 @@
 <Project>
   <ProjectOutputs>
     <ProjectOutput>
-      <FullPath>H:\vs project\testprj\x64\Release\testprj.exe</FullPath>
+      <FullPath>H:\vs project\tb\x64\Release\testprj.exe</FullPath>
     </ProjectOutput>
   </ProjectOutputs>
   <ContentFiles />
