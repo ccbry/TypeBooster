@@ -4,7 +4,7 @@
 * message processer for about window
 */
 LRESULT CALLBACK aboutWindowProc(HWND hwnd, UINT uint, WPARAM wParam, LPARAM lParam) {
-	LPCWSTR about = L"Created By:�콭�� ����Ԧ  @2022.5";
+	LPCWSTR about = L"Created By:Öì½­ÔÆ Åíè×Ô¦  @2022.5";
 	PAINTSTRUCT paintStruct;
 	HDC hdc;
 
@@ -13,14 +13,14 @@ LRESULT CALLBACK aboutWindowProc(HWND hwnd, UINT uint, WPARAM wParam, LPARAM lPa
 		hdc = BeginPaint(hwnd, &paintStruct);
 		HFONT font = CreateFont(25, 0, 0, 0, FW_NORMAL, FALSE, FALSE, FALSE,
 			GB2312_CHARSET, OUT_DEFAULT_PRECIS, CLIP_DEFAULT_PRECIS,
-			PROOF_QUALITY, FIXED_PITCH | FF_MODERN, L"΢���ź�");
+			PROOF_QUALITY, FIXED_PITCH | FF_MODERN, L"Î¢ÈíÑÅºÚ");
 		SelectObject(hdc, font);
 		TextOutW(hdc, 5, 5, about, wcslen(about));
 		TextOutW(hdc, 5, 40, L"For more infomation:", wcslen(L"For more infomation:"));
 		TextOutW(hdc, 5, 75, L"GitHub Repository or README", wcslen(L"GitHub Repository or README"));
 		TextOutW(hdc, 5, 120, L"Special thanks to:", wcslen(L"Special thanks to:"));
 		TextOutW(hdc, 5, 155, L"Windows, for cleaning up the mess", wcslen(L"Windows, for cleaning up the mess"));
-		TextOutW(hdc, 5, 190, L"                 we left in memery", wcslen(L"                 we left in memery"));
+		TextOutW(hdc, 5, 190, L"                 we left in memery", wcslen(L"                 we left in memory"));
 
 		DeleteObject(font);
 
